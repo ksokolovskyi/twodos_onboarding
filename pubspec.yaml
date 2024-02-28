@@ -1,0 +1,30 @@
+name: twodos_onboarding
+description: "Twodos Onboarding"
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  cupertino_icons: 1.0.6
+  flutter:
+    sdk: flutter
+  tactile_feedback:
+    git: https://github.com/ksokolovskyi/tactile_feedback
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: 5.1.0
+
+flutter:
+  fonts:
+    - family: SF Pro Rounded
+      fonts:
+        - asset: assets/fonts/SF-Pro-Rounded-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SF-Pro-Rounded-Medium.ttf
+          weight: 500
+
+  uses-material-design: false
