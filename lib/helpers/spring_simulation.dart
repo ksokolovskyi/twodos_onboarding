@@ -10,9 +10,9 @@ class SpringSimulation2D with ChangeNotifier {
     required this.spring,
     Offset anchorPosition = Offset.zero,
     Offset springPosition = Offset.zero,
-  })  : _anchorPosition = anchorPosition,
-        _springPosition = springPosition,
-        _previousVelocity = Offset.zero {
+  }) : _anchorPosition = anchorPosition,
+       _springPosition = springPosition,
+       _previousVelocity = Offset.zero {
     _ticker = tickerProvider.createTicker(_onTick);
   }
 

@@ -4,8 +4,8 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-const _frontPageIdleAngle = math.pi / 30;
-const _backPageIdleAngle = -math.pi / 25;
+const double _frontPageIdleAngle = math.pi / 30;
+const double _backPageIdleAngle = -math.pi / 25;
 
 class TwodosIcon extends StatefulWidget {
   const TwodosIcon({
@@ -60,7 +60,7 @@ class _TwodosIconState extends State<TwodosIcon> {
                 },
                 child: ColorFiltered(
                   colorFilter: ColorFilter.mode(
-                    Colors.white.withOpacity(0.5),
+                    Colors.white.withValues(alpha: 0.5),
                     BlendMode.srcOver,
                   ),
                   child: CustomPaint(
@@ -161,8 +161,9 @@ class _PagePainter extends CustomPainter {
 
       for (final shadow in shadows) {
         final paint = shadow.toPaint();
-        final rrect =
-            backgroundRRect.shift(shadow.offset).inflate(shadow.spreadRadius);
+        final rrect = backgroundRRect
+            .shift(shadow.offset)
+            .inflate(shadow.spreadRadius);
         canvas.drawRRect(rrect, paint);
       }
 
@@ -222,7 +223,7 @@ class _PagePainter extends CustomPainter {
           Offset(rect.left, dy),
           Offset(rect.right, dy),
           Paint()
-            ..color = const Color(0xFF154EE1).withOpacity(0.2)
+            ..color = const Color(0xFF154EE1).withValues(alpha: 0.2)
             ..strokeWidth = lineWidth,
         );
         dy += spaceBetween + lineWidth;
@@ -234,7 +235,7 @@ class _PagePainter extends CustomPainter {
         Offset(dx, rect.top),
         Offset(dx, rect.bottom),
         Paint()
-          ..color = const Color(0xFFCA3100).withOpacity(0.2)
+          ..color = const Color(0xFFCA3100).withValues(alpha: 0.2)
           ..strokeWidth = lineWidth,
       );
 

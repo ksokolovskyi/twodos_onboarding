@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/tactile_feedback/macos
 
 SPEC CHECKSUMS:
-  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
-  tactile_feedback: 1f7f76ae961b62210977f8dba73c625375326dd1
+  FlutterMacOS: d0db08ddef1a9af05a5ec4b724367152bb0500b1
+  tactile_feedback: 3f3811014954dd22481bf43dac9015925ff5d9be
 
-PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
+PODFILE CHECKSUM: 9ebaf0ce3d369aaa26a9ea0e159195ed94724cf3
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.16.2

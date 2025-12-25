@@ -19,35 +19,50 @@ class _OnboardingPageState extends State<OnboardingPage>
     duration: const Duration(milliseconds: 1000),
   );
 
-  late final _iconAndTitleOpacity = Tween<double>(begin: 0, end: 1)
-      .chain(CurveTween(curve: const Interval(0, 0.25, curve: Curves.easeIn)))
-      .animate(_appearanceController);
+  late final Animation<double> _iconAndTitleOpacity =
+      Tween<double>(begin: 0, end: 1)
+          .chain(
+            CurveTween(curve: const Interval(0, 0.25, curve: Curves.easeIn)),
+          )
+          .animate(_appearanceController);
 
-  late final _titlePosition = Tween<Offset>(
-    begin: const Offset(0, 0.5),
-    end: Offset.zero,
-  )
-      .chain(
-        CurveTween(curve: const Interval(0, 0.75, curve: ElasticOutCurve(0.7))),
-      )
-      .animate(_appearanceController);
+  late final Animation<Offset> _titlePosition =
+      Tween<Offset>(
+            begin: const Offset(0, 0.5),
+            end: Offset.zero,
+          )
+          .chain(
+            CurveTween(
+              curve: const Interval(0, 0.75, curve: ElasticOutCurve(0.7)),
+            ),
+          )
+          .animate(_appearanceController);
 
-  late final _subtitleOpacity = Tween<double>(begin: 0, end: 1)
-      .chain(CurveTween(curve: const Interval(0.3, 0.55, curve: Curves.easeIn)))
-      .animate(_appearanceController);
+  late final Animation<double> _subtitleOpacity =
+      Tween<double>(begin: 0, end: 1)
+          .chain(
+            CurveTween(curve: const Interval(0.3, 0.55, curve: Curves.easeIn)),
+          )
+          .animate(_appearanceController);
 
-  late final _subtitlePosition = Tween<Offset>(
-    begin: const Offset(0, 0.5),
-    end: Offset.zero,
-  )
-      .chain(
-        CurveTween(curve: const Interval(0.3, 1, curve: ElasticOutCurve(0.7))),
-      )
-      .animate(_appearanceController);
+  late final Animation<Offset> _subtitlePosition =
+      Tween<Offset>(
+            begin: const Offset(0, 0.5),
+            end: Offset.zero,
+          )
+          .chain(
+            CurveTween(
+              curve: const Interval(0.3, 1, curve: ElasticOutCurve(0.7)),
+            ),
+          )
+          .animate(_appearanceController);
 
-  late final _slideToUnlockOpacity = Tween<double>(begin: 0, end: 1)
-      .chain(CurveTween(curve: const Interval(0.9, 1, curve: Curves.easeIn)))
-      .animate(_appearanceController);
+  late final Animation<double> _slideToUnlockOpacity =
+      Tween<double>(begin: 0, end: 1)
+          .chain(
+            CurveTween(curve: const Interval(0.9, 1, curve: Curves.easeIn)),
+          )
+          .animate(_appearanceController);
 
   /// Spring simulation which is used to create spring effect when drag ends.
   late final _springSimulation = SpringSimulation2D(
@@ -125,8 +140,12 @@ class _OnboardingPageState extends State<OnboardingPage>
   /// updates [_progress] value if needed.
   void _maybeUpdateProgress() {
     final dragOffset = _springSimulation.springPosition.dx.clamp(0.0, 50.0);
-    final progress =
-        dragOffset.remap(fromLow: 0, fromHigh: 50, toLow: 0, toHigh: 1);
+    final progress = dragOffset.remap(
+      fromLow: 0,
+      fromHigh: 50,
+      toLow: 0,
+      toHigh: 1,
+    );
 
     if (_progress.value != progress) {
       _progress.value = progress;
@@ -152,8 +171,12 @@ class _OnboardingPageState extends State<OnboardingPage>
     final dragOffset = _springSimulation.springPosition.dx.clamp(-50.0, 200.0);
     final angle = switch (dragOffset) {
       -50 => 0.0,
-      > -50 && <= 0 =>
-        dragOffset.remap(fromLow: -50, fromHigh: 0, toLow: 0, toHigh: 1),
+      > -50 && <= 0 => dragOffset.remap(
+        fromLow: -50,
+        fromHigh: 0,
+        toLow: 0,
+        toHigh: 1,
+      ),
       _ => dragOffset.remap(fromLow: 0, fromHigh: 200, toLow: 1, toHigh: 4),
     };
 
